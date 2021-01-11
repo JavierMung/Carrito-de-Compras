@@ -13,10 +13,6 @@ public class Cliente {
     private String Nombre;
     private Carrito CarroCliente;
 
-    public Cliente(Carrito CarroCliente) {
-        CarroCliente = new Carrito();
-    }
-    
     public String getNombre() {
         return Nombre;
     }
@@ -34,6 +30,5 @@ public class Cliente {
     }
     
     public void AgrItem(){
-        CarroCliente.
     }
 }
