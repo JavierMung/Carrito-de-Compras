@@ -1,13 +1,14 @@
 
-package carrito_de_compras;
+package principal;
 
+import carrito_de_compras.*;
 import javax.swing.JOptionPane;
 
 
 public class Carrito_de_Compras {
 
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
        Cliente C1, C2, C3;
        PanelsCarrito Panels;
        String Opc;
@@ -35,6 +36,6 @@ public class Carrito_de_Compras {
        */
        
         
-    }
+    //}
     
 }

@@ -5,10 +5,7 @@
  */
 package carrito_de_compras;
 
-/**
- *
- * @author Marco
- */
+
 public class Item {
     
 }

@@ -1,17 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package carrito_de_compras;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author Marco
  */
 public class Carrito {
+    private static int numeroR = 1; 
+    private int numero;
     private int NoProductos;
+    private ArrayList <Item> productos;    
 
+    public Carrito() {
+        asignarCarrito();
+    }
+    
+    
     public int getNoProductos() {
         return NoProductos;
     }
@@ -19,6 +25,18 @@ public class Carrito {
     public void setNoProductos(int NoProductos) {
         this.NoProductos = NoProductos;
     }
+    
+    private void asignarCarrito(){
+        
+       numero = numeroR;
+        numeroR++;
+        
+    }
+    
+    public int getNumero(){
+        return numero;
+    }
+    
     
     
 }
