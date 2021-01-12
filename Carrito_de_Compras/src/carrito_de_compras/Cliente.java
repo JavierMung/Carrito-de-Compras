@@ -5,10 +5,12 @@ package carrito_de_compras;
 public class Cliente {
     private String Nombre;
     private Carrito CarroCliente;
-
-    public Cliente(String Nombre, Carrito carro) {
+    private String contraseña;
+    
+    public Cliente(String Nombre, Carrito carro, String contraseña) {
         this.Nombre = Nombre;
         this.CarroCliente = carro;
+        this.contraseña= contraseña;
     }
 
     public Cliente() {
@@ -28,6 +30,14 @@ public class Cliente {
    
     
     public void AgrItem(){
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
    
     

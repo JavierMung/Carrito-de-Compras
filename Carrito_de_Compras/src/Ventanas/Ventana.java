@@ -28,52 +28,47 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        tex_Contraseña = new javax.swing.JPanel();
         etiqueta_Usuario = new javax.swing.JLabel();
         etiqueta_Contraseña = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        texto_Usuario = new javax.swing.JTextField();
-        texto_Contraseña = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        text_Usuario = new javax.swing.JTextField();
+        boton_IniciarSesion = new javax.swing.JButton();
         etiqueta_Escommzaon = new javax.swing.JLabel();
+        tex_contraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(650, 500));
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        tex_Contraseña.setLayout(new java.awt.GridBagLayout());
 
         etiqueta_Usuario.setText("Usuario");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        jPanel1.add(etiqueta_Usuario, gridBagConstraints);
+        tex_Contraseña.add(etiqueta_Usuario, gridBagConstraints);
 
         etiqueta_Contraseña.setText("Contraseña");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
-        jPanel1.add(etiqueta_Contraseña, gridBagConstraints);
-        jPanel1.add(jSeparator1, new java.awt.GridBagConstraints());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 150;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(texto_Usuario, gridBagConstraints);
+        tex_Contraseña.add(etiqueta_Contraseña, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 150;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(texto_Contraseña, gridBagConstraints);
+        tex_Contraseña.add(text_Usuario, gridBagConstraints);
 
-        jButton1.setText("Iniciar Sesion");
+        boton_IniciarSesion.setText("Iniciar Sesion");
+        boton_IniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_IniciarSesionActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 35;
-        jPanel1.add(jButton1, gridBagConstraints);
+        tex_Contraseña.add(boton_IniciarSesion, gridBagConstraints);
 
         etiqueta_Escommzaon.setFont(new java.awt.Font("OCR A Extended", 0, 36)); // NOI18N
         etiqueta_Escommzaon.setForeground(new java.awt.Color(0, 51, 102));
@@ -82,21 +77,31 @@ public class Ventana extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        jPanel1.add(etiqueta_Escommzaon, gridBagConstraints);
+        tex_Contraseña.add(etiqueta_Escommzaon, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        tex_Contraseña.add(tex_contraseña, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tex_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tex_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton_IniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_IniciarSesionActionPerformed
+        
+    }//GEN-LAST:event_boton_IniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,13 +139,12 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton boton_IniciarSesion;
     private javax.swing.JLabel etiqueta_Contraseña;
     private javax.swing.JLabel etiqueta_Escommzaon;
     private javax.swing.JLabel etiqueta_Usuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField texto_Contraseña;
-    private javax.swing.JTextField texto_Usuario;
+    private javax.swing.JPanel tex_Contraseña;
+    public javax.swing.JPasswordField tex_contraseña;
+    public javax.swing.JTextField text_Usuario;
     // End of variables declaration//GEN-END:variables
 }
