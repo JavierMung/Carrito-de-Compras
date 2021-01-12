@@ -7,7 +7,7 @@ import carrito_de_compras.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+//En esta clase se hará la conexion de la parte logica con la parte visual
 public class Controlador implements ActionListener {
     private Ventana ventana;
     private Cliente cliente;

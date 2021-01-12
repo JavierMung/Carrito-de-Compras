@@ -4,7 +4,7 @@ package principal;
 import carrito_de_compras.*;
 import javax.swing.JOptionPane;
 
-
+//Este es el main donde todo se instanciara
 public class Carrito_de_Compras {
 
     
