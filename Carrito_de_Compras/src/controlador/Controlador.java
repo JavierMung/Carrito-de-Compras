@@ -40,6 +40,7 @@ public class Controlador implements ActionListener {
         ventana.setTitle("Carrito de Compras");
         ventana.setLocationRelativeTo(null);
         modelo = new DefaultListModel();
+        ModeCarrito = new DefaultListModel();
         ventana.setLocationRelativeTo(null);
         iniciarBotones();
         ventana.setVisible(true);
@@ -68,6 +69,11 @@ public class Controlador implements ActionListener {
         }
     }
      
+    private void asignarProductosCarr (){
+        for(Producto e: usuario.getCarroCliente().getProductos()){
+            ModeCarrito.addElement(e.toString());
+        }
+    }
     
     private void comprobarUsuario(){        //FUNCION PARA VERIFICAR EL USUARIO Y CONTRASENNA 
         int i= 0;
@@ -106,10 +112,11 @@ public class Controlador implements ActionListener {
      }
      
      private void verCarrito(){     //FUNCION PARA DESPLEGAR LA VENTANA DEL CARRITO
+         asignarProductosCarr();
+         ventanaC.Lista_Ventana_Carrito.setModel(ModeCarrito); 
          ventanaC.setVisible(true);
          ventanaC.etiqueta_usuarioCarrito.setText(usuario.getNombre());
-         //asignarProductos();
-         ventanaC.Lista_Ventana_Carrito.setModel(modelo); 
+         
      }
      
      private void AgrCarrito(){     //FUNCION PARA AGREGAR LOS ITEMS AL CARRITO DEL USUARIO
@@ -121,7 +128,6 @@ public class Controlador implements ActionListener {
                  usuario.getCarroCliente().AgrProd(productos.get(i));
             }
         }
-         
      }
      
 }

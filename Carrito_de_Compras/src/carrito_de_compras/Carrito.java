@@ -11,10 +11,18 @@ public class Carrito {
     private static int numeroR = 1; 
     private int numero;
     private int NoProductos;
-    private ArrayList <Producto> productos;
+    private ArrayList <Producto> productos = new ArrayList<Producto>();
 
     public Carrito() {
         asignarCarrito();
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
     }
     
     
@@ -27,10 +35,8 @@ public class Carrito {
     }
     
     private void asignarCarrito(){
-        
        numero = numeroR;
         numeroR++;
-        
     }
     
     public int getNumero(){
