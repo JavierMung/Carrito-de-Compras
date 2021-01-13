@@ -11,7 +11,7 @@ public class Carrito {
     private static int numeroR = 1; 
     private int numero;
     private int NoProductos;
-    private ArrayList <Item> productos;    
+    private ArrayList <Producto> productos;
 
     public Carrito() {
         asignarCarrito();
@@ -37,6 +37,8 @@ public class Carrito {
         return numero;
     }
     
-    
+    public void AgrProd(Producto Pord){
+        productos.add(Pord);
+    }
     
 }

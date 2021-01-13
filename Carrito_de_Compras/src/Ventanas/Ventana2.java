@@ -78,6 +78,11 @@ public class Ventana2 extends javax.swing.JFrame {
 
         numero_producto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         numero_producto.setText("0");
+        numero_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numero_productoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -156,6 +161,10 @@ public class Ventana2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void numero_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numero_productoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numero_productoActionPerformed
 
     /**
      * @param args the command line arguments

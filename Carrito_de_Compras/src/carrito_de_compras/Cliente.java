@@ -21,13 +21,9 @@ public class Cliente {
         return Nombre;
     }
 
-    
-
-    public int getCarroCliente() {
-        return CarroCliente.getNumero();
+    public Carrito getCarroCliente() {
+        return CarroCliente;
     }
-
-   
     
     public void AgrItem(){
     }
@@ -40,5 +36,4 @@ public class Cliente {
         this.contraseña = contraseña;
     }
    
-    
 }

@@ -17,24 +17,27 @@ public class Carrito_de_Compras {
        Ventana2 ventana2 = new Ventana2();
        ArrayList <Carrito> carritos = new ArrayList<Carrito>();
        ArrayList <Cliente> clientes = new ArrayList<Cliente>(); 
-       ArrayList <Producto> productos = new ArrayList<Producto>();
+       ArrayList <Producto> catalogo = new ArrayList<Producto>();
        VentanaCarrito ventanaC = new VentanaCarrito(ventana, true);
        
        carritos.add(new Carrito());
        carritos.add(new Carrito());
        carritos.add(new Carrito());
-       productos.add(new Producto (25, "Chetos"));
-       productos.add(new Producto (275, "Playera"));
-       productos.add(new Producto (300, "Pantalon"));
-       productos.add(new Producto (10, "Agua"));
+       catalogo.add(new Producto (25, "Chetos"));
+       catalogo.add(new Producto (275, "Playera"));
+       catalogo.add(new Producto (300, "Pantalon"));
+       catalogo.add(new Producto (10, "Agua"));
+       catalogo.add(new Producto (40, "Cerveza"));
+       catalogo.add(new Producto (24, "Pan"));
+       catalogo.add(new Producto (15, "Refresco"));
+       
        clientes.add(new Cliente("Jose Perez", carritos.get(0), "123"));
-       clientes.add(new Cliente("Marco Ortega", carritos.get(1),"456"));
+       clientes.add(new Cliente("1", carritos.get(1),"1"));
        clientes.add(new Cliente("Javier Munguia", carritos.get(2),"789"));
-       Controlador controlador = new Controlador(ventana,carritos,clientes,productos,ventana2, ventanaC);
+       
+       Controlador controlador = new Controlador(ventana, carritos, clientes, catalogo, ventana2, ventanaC);
        
        controlador.iniciar();
-        
-        
         
     }
     
