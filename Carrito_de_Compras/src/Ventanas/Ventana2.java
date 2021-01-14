@@ -29,55 +29,50 @@ public class Ventana2 extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        etiqueta_usuario = new javax.swing.JLabel();
         boton_ver_carrito = new javax.swing.JButton();
         boton_agregar_carrito = new javax.swing.JButton();
         numero_producto = new javax.swing.JTextField();
         boton_mas = new javax.swing.JButton();
         boton_menos = new javax.swing.JButton();
+        etiqueta_precio = new javax.swing.JLabel();
+        etiqueta_total_ventana2 = new javax.swing.JLabel();
+        imagen_Carrito = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        etiqueta_usuario = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        etiqueta_precio = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menu_salir = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setAlignmentY(0.2F);
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 200));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        etiqueta_usuario.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 24)); // NOI18N
-        etiqueta_usuario.setForeground(new java.awt.Color(0, 51, 102));
-        etiqueta_usuario.setText("USUARIO ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
-        jPanel1.add(etiqueta_usuario, gridBagConstraints);
-
         boton_ver_carrito.setText("ver carrito");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(boton_ver_carrito, gridBagConstraints);
 
         boton_agregar_carrito.setText("agregar a carrito");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel1.add(boton_agregar_carrito, gridBagConstraints);
 
         numero_producto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        numero_producto.setText("0");
+        numero_producto.setText("1");
+        numero_producto.setMinimumSize(new java.awt.Dimension(30, 19));
         numero_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numero_productoActionPerformed(evt);
@@ -86,6 +81,7 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
@@ -93,10 +89,10 @@ public class Ventana2 extends javax.swing.JFrame {
 
         boton_mas.setText("+");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 60);
         jPanel1.add(boton_mas, gridBagConstraints);
 
         boton_menos.setText("-");
@@ -104,8 +100,54 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 0);
         jPanel1.add(boton_menos, gridBagConstraints);
+
+        etiqueta_precio.setText("Precio Total:   $");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        jPanel1.add(etiqueta_precio, gridBagConstraints);
+
+        etiqueta_total_ventana2.setText("0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        jPanel1.add(etiqueta_total_ventana2, gridBagConstraints);
+
+        imagen_Carrito.setMinimumSize(new java.awt.Dimension(25, 25));
+        imagen_Carrito.setPreferredSize(new java.awt.Dimension(25, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanel1.add(imagen_Carrito, gridBagConstraints);
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        etiqueta_usuario.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 36)); // NOI18N
+        etiqueta_usuario.setForeground(new java.awt.Color(0, 51, 102));
+        etiqueta_usuario.setText("USUARIO ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 193;
+        gridBagConstraints.ipady = 59;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        jPanel2.add(etiqueta_usuario, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("ESCOMAZON");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        jPanel2.add(jLabel1, gridBagConstraints);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jScrollPane1.setViewportView(jList1);
 
@@ -117,23 +159,8 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(25, 10, 25, 25);
-        jPanel1.add(jScrollPane1, gridBagConstraints);
-
-        etiqueta_precio.setText("Precio Total:   $");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
-        jPanel1.add(etiqueta_precio, gridBagConstraints);
-
-        jLabel1.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        jPanel1.add(jLabel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        jPanel3.add(jScrollPane1, gridBagConstraints);
 
         jMenu1.setText("Menu");
 
@@ -148,15 +175,21 @@ public class Ventana2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 1, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -209,14 +242,18 @@ public class Ventana2 extends javax.swing.JFrame {
     public javax.swing.JButton boton_menos;
     public javax.swing.JButton boton_ver_carrito;
     private javax.swing.JLabel etiqueta_precio;
+    public javax.swing.JLabel etiqueta_total_ventana2;
     public javax.swing.JLabel etiqueta_usuario;
+    public javax.swing.JLabel imagen_Carrito;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenuItem menu_salir;
+    public javax.swing.JMenuItem menu_salir;
     public javax.swing.JTextField numero_producto;
     // End of variables declaration//GEN-END:variables
 }

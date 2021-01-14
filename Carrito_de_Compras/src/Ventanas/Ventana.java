@@ -28,34 +28,40 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        tex_Contraseña = new javax.swing.JPanel();
+        panel = new javax.swing.JPanel();
         etiqueta_Usuario = new javax.swing.JLabel();
         etiqueta_Contraseña = new javax.swing.JLabel();
         text_Usuario = new javax.swing.JTextField();
         boton_IniciarSesion = new javax.swing.JButton();
         etiqueta_Escommzaon = new javax.swing.JLabel();
         tex_contraseña = new javax.swing.JPasswordField();
+        imagen_ipn = new javax.swing.JLabel();
+        imagen_escom = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 250));
 
-        tex_Contraseña.setLayout(new java.awt.GridBagLayout());
+        panel.setBackground(new java.awt.Color(222, 221, 221));
+        panel.setForeground(new java.awt.Color(43, 3, 3));
+        panel.setPreferredSize(new java.awt.Dimension(500, 250));
+        panel.setLayout(new java.awt.GridBagLayout());
 
         etiqueta_Usuario.setText("Usuario");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        tex_Contraseña.add(etiqueta_Usuario, gridBagConstraints);
+        panel.add(etiqueta_Usuario, gridBagConstraints);
 
         etiqueta_Contraseña.setText("Contraseña");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
-        tex_Contraseña.add(etiqueta_Contraseña, gridBagConstraints);
+        panel.add(etiqueta_Contraseña, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 150;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        tex_Contraseña.add(text_Usuario, gridBagConstraints);
+        panel.add(text_Usuario, gridBagConstraints);
 
         boton_IniciarSesion.setText("Iniciar Sesion");
         boton_IniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -68,32 +74,49 @@ public class Ventana extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 35;
-        tex_Contraseña.add(boton_IniciarSesion, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 25, 10);
+        panel.add(boton_IniciarSesion, gridBagConstraints);
 
         etiqueta_Escommzaon.setFont(new java.awt.Font("OCR A Extended", 0, 36)); // NOI18N
         etiqueta_Escommzaon.setForeground(new java.awt.Color(0, 51, 102));
         etiqueta_Escommzaon.setText("ESCOMAZON");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        tex_Contraseña.add(etiqueta_Escommzaon, gridBagConstraints);
+        gridBagConstraints.gridwidth = 3;
+        panel.add(etiqueta_Escommzaon, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        tex_Contraseña.add(tex_contraseña, gridBagConstraints);
+        panel.add(tex_contraseña, gridBagConstraints);
+
+        imagen_ipn.setPreferredSize(new java.awt.Dimension(50, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        panel.add(imagen_ipn, gridBagConstraints);
+
+        imagen_escom.setPreferredSize(new java.awt.Dimension(50, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        panel.add(imagen_escom, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tex_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tex_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
         );
 
         pack();
@@ -143,7 +166,9 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel etiqueta_Contraseña;
     private javax.swing.JLabel etiqueta_Escommzaon;
     private javax.swing.JLabel etiqueta_Usuario;
-    private javax.swing.JPanel tex_Contraseña;
+    public javax.swing.JLabel imagen_escom;
+    public javax.swing.JLabel imagen_ipn;
+    public javax.swing.JPanel panel;
     public javax.swing.JPasswordField tex_contraseña;
     public javax.swing.JTextField text_Usuario;
     // End of variables declaration//GEN-END:variables

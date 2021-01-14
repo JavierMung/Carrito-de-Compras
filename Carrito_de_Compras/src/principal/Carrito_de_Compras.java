@@ -18,7 +18,7 @@ public class Carrito_de_Compras {
        ArrayList <Carrito> carritos = new ArrayList<Carrito>();
        ArrayList <Cliente> clientes = new ArrayList<Cliente>(); 
        ArrayList <Producto> catalogo = new ArrayList<Producto>();
-       VentanaCarrito ventanaC = new VentanaCarrito(ventana, true);
+       VentanaCarrito ventanaC = new VentanaCarrito(ventana, false);
        
        carritos.add(new Carrito());
        carritos.add(new Carrito());

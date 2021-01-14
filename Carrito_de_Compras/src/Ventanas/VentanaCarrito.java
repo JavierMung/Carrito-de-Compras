@@ -31,7 +31,7 @@ public class VentanaCarrito extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         boton_regresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        etiqueta_total = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Lista_Ventana_Carrito = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
@@ -43,7 +43,7 @@ public class VentanaCarrito extends javax.swing.JDialog {
 
         jLabel1.setText("Total a pagar: ");
 
-        jLabel2.setText("0");
+        etiqueta_total.setText("0");
 
         jScrollPane1.setViewportView(Lista_Ventana_Carrito);
 
@@ -70,7 +70,7 @@ public class VentanaCarrito extends javax.swing.JDialog {
                         .addGap(73, 73, 73)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(etiqueta_total)
                         .addGap(51, 51, 51))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
@@ -90,7 +90,7 @@ public class VentanaCarrito extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(jLabel2))
+                        .addComponent(etiqueta_total))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_regresar)
@@ -156,9 +156,9 @@ public class VentanaCarrito extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JList<String> Lista_Ventana_Carrito;
     public javax.swing.JButton boton_regresar;
+    public javax.swing.JLabel etiqueta_total;
     public javax.swing.JLabel etiqueta_usuarioCarrito;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
