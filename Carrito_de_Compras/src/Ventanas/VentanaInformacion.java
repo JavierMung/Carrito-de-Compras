@@ -37,9 +37,9 @@ public class VentanaInformacion extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         imagen_producto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Stock1 = new javax.swing.JLabel();
-        producto1 = new javax.swing.JLabel();
-        precio1 = new javax.swing.JLabel();
+        Stock = new javax.swing.JLabel();
+        producto = new javax.swing.JLabel();
+        precio = new javax.swing.JLabel();
         informacion_precio = new javax.swing.JLabel();
         infomacion_stock = new javax.swing.JLabel();
         informacion_producto = new javax.swing.JLabel();
@@ -68,38 +68,38 @@ public class VentanaInformacion extends javax.swing.JDialog {
         jPanel2.setPreferredSize(new java.awt.Dimension(60, 15));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        Stock1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
-        Stock1.setText("Stock : ");
-        Stock1.setPreferredSize(new java.awt.Dimension(60, 15));
+        Stock.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        Stock.setText("Stock : ");
+        Stock.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.ipady = 1;
-        jPanel2.add(Stock1, gridBagConstraints);
+        jPanel2.add(Stock, gridBagConstraints);
 
-        producto1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
-        producto1.setText("Producto:");
-        producto1.setPreferredSize(new java.awt.Dimension(60, 15));
+        producto.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        producto.setText("Producto:");
+        producto.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.ipady = 1;
-        jPanel2.add(producto1, gridBagConstraints);
+        jPanel2.add(producto, gridBagConstraints);
 
-        precio1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
-        precio1.setText("Precio :");
-        precio1.setPreferredSize(new java.awt.Dimension(60, 15));
+        precio.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        precio.setText("Precio :");
+        precio.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.ipady = 1;
-        jPanel2.add(precio1, gridBagConstraints);
+        jPanel2.add(precio, gridBagConstraints);
 
         informacion_precio.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
         informacion_precio.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -222,7 +222,7 @@ public class VentanaInformacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Stock1;
+    private javax.swing.JLabel Stock;
     public javax.swing.JLabel imagen_producto;
     public javax.swing.JLabel infomacion_stock;
     public javax.swing.JLabel informacion_precio;
@@ -231,7 +231,7 @@ public class VentanaInformacion extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel precio1;
-    private javax.swing.JLabel producto1;
+    private javax.swing.JLabel precio;
+    private javax.swing.JLabel producto;
     // End of variables declaration//GEN-END:variables
 }
