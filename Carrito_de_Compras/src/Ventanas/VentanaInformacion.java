@@ -62,7 +62,7 @@ public class VentanaInformacion extends javax.swing.JDialog {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(imagen_producto, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 51)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 102, 102)));
         jPanel2.setMaximumSize(new java.awt.Dimension(100, 30));
         jPanel2.setMinimumSize(new java.awt.Dimension(30, 15));
         jPanel2.setPreferredSize(new java.awt.Dimension(60, 15));
