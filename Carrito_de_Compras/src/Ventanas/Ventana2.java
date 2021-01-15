@@ -157,7 +157,7 @@ public class Ventana2 extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jList1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jList1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
