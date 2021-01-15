@@ -35,89 +35,144 @@ public class VentanaInformacion extends javax.swing.JDialog {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        producto = new javax.swing.JLabel();
-        informacion_producto = new javax.swing.JLabel();
         imagen_producto = new javax.swing.JLabel();
-        Stock = new javax.swing.JLabel();
-        precio = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Stock1 = new javax.swing.JLabel();
+        producto1 = new javax.swing.JLabel();
+        precio1 = new javax.swing.JLabel();
         informacion_precio = new javax.swing.JLabel();
         infomacion_stock = new javax.swing.JLabel();
+        informacion_producto = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(430, 350));
+        setResizable(false);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        producto.setText("Producto:");
-        producto.setPreferredSize(new java.awt.Dimension(35, 15));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 38;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 0);
-        jPanel1.add(producto, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 84;
-        gridBagConstraints.ipady = 15;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
-        jPanel1.add(informacion_producto, gridBagConstraints);
 
         imagen_producto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imagen_producto.setMaximumSize(new java.awt.Dimension(200, 200));
         imagen_producto.setMinimumSize(new java.awt.Dimension(25, 10));
-        imagen_producto.setPreferredSize(new java.awt.Dimension(50, 50));
+        imagen_producto.setPreferredSize(new java.awt.Dimension(130, 190));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 130;
-        gridBagConstraints.ipady = 126;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(imagen_producto, gridBagConstraints);
 
-        Stock.setText("Stock : ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        jPanel1.add(Stock, gridBagConstraints);
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 51)));
+        jPanel2.setMaximumSize(new java.awt.Dimension(100, 30));
+        jPanel2.setMinimumSize(new java.awt.Dimension(30, 15));
+        jPanel2.setPreferredSize(new java.awt.Dimension(60, 15));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        precio.setText("Precio :");
+        Stock1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        Stock1.setText("Stock : ");
+        Stock1.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 0);
-        jPanel1.add(precio, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        jPanel2.add(Stock1, gridBagConstraints);
+
+        producto1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        producto1.setText("Producto:");
+        producto1.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 56;
-        gridBagConstraints.ipady = 15;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
-        jPanel1.add(informacion_precio, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        jPanel2.add(producto1, gridBagConstraints);
+
+        precio1.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        precio1.setText("Precio :");
+        precio1.setPreferredSize(new java.awt.Dimension(60, 15));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        jPanel2.add(precio1, gridBagConstraints);
+
+        informacion_precio.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        informacion_precio.setMaximumSize(new java.awt.Dimension(100, 30));
+        informacion_precio.setMinimumSize(new java.awt.Dimension(30, 15));
+        informacion_precio.setPreferredSize(new java.awt.Dimension(60, 15));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 43;
-        gridBagConstraints.ipady = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
-        jPanel1.add(infomacion_stock, gridBagConstraints);
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPanel2.add(informacion_precio, gridBagConstraints);
+
+        infomacion_stock.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        infomacion_stock.setMaximumSize(new java.awt.Dimension(100, 30));
+        infomacion_stock.setMinimumSize(new java.awt.Dimension(30, 15));
+        infomacion_stock.setPreferredSize(new java.awt.Dimension(60, 15));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPanel2.add(infomacion_stock, gridBagConstraints);
+
+        informacion_producto.setFont(new java.awt.Font("Malgun Gothic", 0, 11)); // NOI18N
+        informacion_producto.setMaximumSize(new java.awt.Dimension(100, 30));
+        informacion_producto.setMinimumSize(new java.awt.Dimension(30, 15));
+        informacion_producto.setPreferredSize(new java.awt.Dimension(60, 15));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPanel2.add(informacion_producto, gridBagConstraints);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setFont(new java.awt.Font("OCR A Extended", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("ESCOMAZON");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(43, 73, 42, 81);
+        jPanel3.add(jLabel1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -167,13 +222,16 @@ public class VentanaInformacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Stock;
+    private javax.swing.JLabel Stock1;
     public javax.swing.JLabel imagen_producto;
     public javax.swing.JLabel infomacion_stock;
     public javax.swing.JLabel informacion_precio;
     public javax.swing.JLabel informacion_producto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel precio;
-    private javax.swing.JLabel producto;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel precio1;
+    private javax.swing.JLabel producto1;
     // End of variables declaration//GEN-END:variables
 }

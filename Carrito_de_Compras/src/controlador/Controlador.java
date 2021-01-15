@@ -43,6 +43,7 @@ public class Controlador implements ActionListener {
     DefaultListModel modelo;
     DefaultListModel ModeCarrito;
     DefaultListModel limpiar = new DefaultListModel();     
+    
     public Controlador(Ventana ventana, ArrayList<Carrito> carritos, ArrayList<Cliente> clientes, ArrayList<Producto> productos, Ventana2 ventana2, VentanaCarrito ventanaC, VentanaInformacion informacion) {
         this.ventana = ventana;
         this.carritos = carritos;
@@ -89,6 +90,7 @@ public class Controlador implements ActionListener {
         }else if(e.getSource() == ventana2.boton_ver_carrito ){
             verCarrito();
         }else if(e.getSource() == ventanaC.boton_regresar){
+            ventana2.etiqueta_total_ventana2.setText("0");
             contador=1;
             ventanaC.Lista_Ventana_Carrito.setModel(limpiar);
             ventanaC.setVisible(false);     
@@ -210,9 +212,7 @@ public class Controlador implements ActionListener {
          ventanaC.etiqueta_total.setText(Float.toString(suma.sumar()));
      }
      
-     private void aumentar(){ //fUNCION PARA AUMENTAR EL CONTADOR DE LOS PRODUCTOS
-         System.out.println("entra");
-         System.out.println(contador);
+     private void aumentar(){ //FUNCION PARA AUMENTAR EL CONTADOR DE LOS PRODUCTOS
          contador++;
          ventana2.numero_producto.setText(Integer.toString(contador));
      }

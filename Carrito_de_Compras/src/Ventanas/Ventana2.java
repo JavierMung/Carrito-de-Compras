@@ -51,11 +51,12 @@ public class Ventana2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.setAlignmentY(0.2F);
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 200));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        boton_ver_carrito.setText("ver carrito");
+        boton_ver_carrito.setText("Ver carrito");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -64,7 +65,7 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(boton_ver_carrito, gridBagConstraints);
 
-        boton_agregar_carrito.setText("agregar a carrito");
+        boton_agregar_carrito.setText("Agregar a carrito");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -128,18 +129,22 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         jPanel1.add(imagen_Carrito, gridBagConstraints);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        etiqueta_usuario.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 36)); // NOI18N
+        etiqueta_usuario.setBackground(new java.awt.Color(204, 204, 255));
+        etiqueta_usuario.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
         etiqueta_usuario.setForeground(new java.awt.Color(0, 51, 102));
         etiqueta_usuario.setText("USUARIO ");
+        etiqueta_usuario.setMinimumSize(new java.awt.Dimension(50, 41));
+        etiqueta_usuario.setPreferredSize(new java.awt.Dimension(100, 41));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 193;
         gridBagConstraints.ipady = 59;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 15, 20, 20);
         jPanel2.add(etiqueta_usuario, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
@@ -149,8 +154,11 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel2.add(jLabel1, gridBagConstraints);
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jList1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -164,16 +172,18 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel3.add(jScrollPane1, gridBagConstraints);
 
-        boton_ver_informacion.setText("ver informacion");
+        boton_ver_informacion.setText("Ver informacion");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         jPanel3.add(boton_ver_informacion, gridBagConstraints);
 
+        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jMenu1.setText("Menu");
 
-        menu_salir.setText("Salir");
+        menu_salir.setText("Cerrar Sesion");
         jMenu1.add(menu_salir);
 
         jMenuBar1.add(jMenu1);
@@ -184,12 +194,11 @@ public class Ventana2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,8 +206,8 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
