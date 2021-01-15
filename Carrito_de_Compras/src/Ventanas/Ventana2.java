@@ -43,11 +43,13 @@ public class Ventana2 extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        boton_ver_informacion = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menu_salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setAlignmentY(0.2F);
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 200));
@@ -162,6 +164,13 @@ public class Ventana2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
         jPanel3.add(jScrollPane1, gridBagConstraints);
 
+        boton_ver_informacion.setText("ver informacion");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        jPanel3.add(boton_ver_informacion, gridBagConstraints);
+
         jMenu1.setText("Menu");
 
         menu_salir.setText("Salir");
@@ -241,6 +250,7 @@ public class Ventana2 extends javax.swing.JFrame {
     public javax.swing.JButton boton_mas;
     public javax.swing.JButton boton_menos;
     public javax.swing.JButton boton_ver_carrito;
+    public javax.swing.JButton boton_ver_informacion;
     private javax.swing.JLabel etiqueta_precio;
     public javax.swing.JLabel etiqueta_total_ventana2;
     public javax.swing.JLabel etiqueta_usuario;

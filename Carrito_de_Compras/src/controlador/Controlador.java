@@ -4,6 +4,7 @@ package controlador;
 import Ventanas.Ventana;
 import Ventanas.Ventana2;
 import Ventanas.VentanaCarrito;
+import Ventanas.VentanaInformacion;
 import carrito_de_compras.Carrito;
 import carrito_de_compras.Cliente;
 import carrito_de_compras.Producto;
@@ -19,30 +20,37 @@ import javax.swing.JOptionPane;
 //En esta clase se hará la conexion de la parte logica con la parte visual
 public class Controlador implements ActionListener {
     private Ventana ventana;
+    private VentanaInformacion informacion;
     private Carrito Carro;
     private ArrayList <Carrito> carritos;
     private ArrayList <Cliente> clientes; 
     private ArrayList <Producto> productos; 
-    DefaultListModel modelo;
-    DefaultListModel ModeCarrito;
-    DefaultListModel limpiar = new DefaultListModel(); 
     private Ventana2 ventana2;
     private VentanaCarrito ventanaC;
     private Cliente usuario ;
-    ImageIcon ipn;
-    ImageIcon escom;
-    ImageIcon carrito;
     private Sumar suma;
     private int contador = 1;
-  
-    
-    public Controlador(Ventana ventana, ArrayList<Carrito> carritos, ArrayList<Cliente> clientes, ArrayList<Producto> productos, Ventana2 ventana2, VentanaCarrito ventanaC) {
+    ImageIcon ipn;
+    ImageIcon escom;
+    ImageIcon carrito; 
+    ImageIcon refresco;
+    ImageIcon pantalon;
+    ImageIcon cerveza;
+    ImageIcon pan;
+    ImageIcon agua;
+    ImageIcon chetos;
+    ImageIcon playera;
+    DefaultListModel modelo;
+    DefaultListModel ModeCarrito;
+    DefaultListModel limpiar = new DefaultListModel();     
+    public Controlador(Ventana ventana, ArrayList<Carrito> carritos, ArrayList<Cliente> clientes, ArrayList<Producto> productos, Ventana2 ventana2, VentanaCarrito ventanaC, VentanaInformacion informacion) {
         this.ventana = ventana;
         this.carritos = carritos;
         this.clientes = clientes;
         this.productos = productos;
         this.ventana2 = ventana2;
         this.ventanaC = ventanaC;
+        this.informacion= informacion;
     }
    
     
@@ -53,14 +61,24 @@ public class Controlador implements ActionListener {
         ModeCarrito = new DefaultListModel();
         ventana.setLocationRelativeTo(null);
         iniciarBotones();
+        iniciarImagenes();
+        ventana.setVisible(true);
+    }
+    
+    private void iniciarImagenes(){ //METODO PARA INSERTAR LAS IMAGENES DE LOS MENUS
         ipn = new ImageIcon(getClass().getResource("/Imagenes/ipn.png"));
         escom = new ImageIcon(getClass().getResource("/Imagenes/escom.png"));
         carrito = new ImageIcon(getClass().getResource("/Imagenes/carrito.png"));
+        refresco = new ImageIcon(getClass().getResource("/Imagenes/refresco.png"));
+        pantalon = new ImageIcon(getClass().getResource("/Imagenes/pantalon.png"));
+        cerveza = new ImageIcon(getClass().getResource("/Imagenes/cerveza.png"));
+        pan = new ImageIcon(getClass().getResource("/Imagenes/pan.png"));
+        agua = new ImageIcon(getClass().getResource("/Imagenes/agua.png"));
+        chetos = new ImageIcon(getClass().getResource("/Imagenes/chetos.png"));
+        playera = new ImageIcon(getClass().getResource("/Imagenes/playera.png"));
         ventana.imagen_ipn.setIcon(new ImageIcon(ipn.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
         ventana.imagen_escom.setIcon(new ImageIcon(escom.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
         ventana2.imagen_Carrito.setIcon(new ImageIcon(carrito.getImage().getScaledInstance(25,25,Image.SCALE_SMOOTH)));
-        
-        ventana.setVisible(true);
     }
     
     
@@ -82,17 +100,22 @@ public class Controlador implements ActionListener {
             disminuir();
         }else if(e.getSource() == ventana2.menu_salir){
             salir();
+        }else if(e.getSource() == ventana2.boton_ver_informacion){
+            verInformacion();
+        }else if(e.getSource() == ventanaC.boton_eliminar){
+            
+           eliminarProducto();
         }
     }
     
-    private void asignarProductos (){
+    private void asignarProductos (){ //METODO PARA ASIGNAR LOS PRODUCTOS A LA VENTANA 2
         modelo.clear();
         for(Producto e: productos){
             modelo.addElement(e.toString());
         }
     }
      
-    private void asignarProductosCarr (){
+    private void asignarProductosCarr (){ //METODO PARA ASIGNAR LOS PRODUCTOS DEL CARRITO A LA LISTA
        
         for(Producto e: usuario.getCarroCliente().getProductos()){
             ModeCarrito.addElement(e.toString());
@@ -118,7 +141,6 @@ public class Controlador implements ActionListener {
      private void iniciarSesion(Cliente e){     //FUNCION QUE MUESTRA LA PANTALLA DE 
         contador =1;
         ventana.setVisible(false);
-        System.out.println(ventana2.numero_producto.getText());
         ventana2.etiqueta_total_ventana2.setText("0");
         asignarProductos();
         ventana2.setLocationRelativeTo(null);
@@ -127,7 +149,6 @@ public class Controlador implements ActionListener {
         suma = new Sumar (usuario.getCarroCliente());
         ventana2.setVisible(true);
         
-     
      }
      
      private void iniciarBotones(){     //FUNCION PARA INICIALIZAR LOS BTONES DE LAS VENTANAS
@@ -138,19 +159,18 @@ public class Controlador implements ActionListener {
          ventana2.boton_ver_carrito.addActionListener(this);
          ventanaC.boton_regresar.addActionListener(this);
          ventana2.menu_salir.addActionListener(this);
-         
+         ventana2.boton_ver_informacion.addActionListener(this);
+         ventanaC.boton_eliminar.addActionListener(this);
      }
      
      private void verCarrito(){     //FUNCION PARA DESPLEGAR LA VENTANA DEL CARRITO
          ModeCarrito.clear();
          asignarProductosCarr();
          resultado();
-         System.out.println(usuario.getNombre());
          ventanaC.Lista_Ventana_Carrito.setModel(ModeCarrito); 
          ventanaC.setLocationRelativeTo(null);
          ventanaC.etiqueta_usuarioCarrito.setText(usuario.getNombre());
          ventanaC.setVisible(true);
-         System.out.println(usuario.getNombre());
      }
      
      private void AgrCarrito(){     //FUNCION PARA AGREGAR LOS ITEMS AL CARRITO DEL USUARIO
@@ -158,19 +178,26 @@ public class Controlador implements ActionListener {
          
          for (i = 0;i < productos.size(); i ++) {
             if(ventana2.jList1.getSelectedValue().equals(productos.get(i).getNombre())){
-                 System.out.println(productos.get(i).getNombre());
-                 if(Integer.parseInt(ventana2.numero_producto.getText()) <= 0 ){
-                     JOptionPane.showMessageDialog(ventana, "Seleccione más de un producto");
-                 }else{
+                if(productos.get(i).getCantidad() <= 0){ //CONDICIONAL PARA SABER SI HAY PRODUCTOS EN EXISTENCIA
+                    JOptionPane.showMessageDialog(null, "NO HAY EN EXISTENCIAS EN ESTE MOEMNTO");
+                }else{
                     
-                    for(int j=0;j< Integer.parseInt(ventana2.numero_producto.getText()) ;j++){
-                    usuario.getCarroCliente().AgrProd(productos.get(i));
-                    
-                 }
-                    ventana2.etiqueta_total_ventana2.setText(Float.toString(suma.sumarVentana2(productos.get(i), Integer.parseInt(ventana2.numero_producto.getText()))));
-                 
+                    System.out.println(productos.get(i).getNombre());
+                    if(Integer.parseInt(ventana2.numero_producto.getText()) <= 0 ){
+                        JOptionPane.showMessageDialog(ventana, "Seleccione más de un producto");
+                    }else{
+                        if(productos.get(i).getCantidad()-Integer.parseInt(ventana2.numero_producto.getText()) >= 0){
+                            for(int j=0;j< Integer.parseInt(ventana2.numero_producto.getText()) ;j++){
+                            usuario.getCarroCliente().AgrProd(productos.get(i));
+                            productos.get(i).disminuir();
+                            }
+                            ventana2.etiqueta_total_ventana2.setText(Float.toString(suma.sumarVentana2(productos.get(i), Integer.parseInt(ventana2.numero_producto.getText()))));
+                        }else {
+                            JOptionPane.showMessageDialog(null, "No contamos con tantos productos en Stock :( \n Favor de ver informacion del producto");
+                        }
+                    }
+                }
             }
-          }
          
         }
          System.out.println("numero"+ventana2.numero_producto.getText());
@@ -213,9 +240,77 @@ public class Controlador implements ActionListener {
         ventana.text_Usuario.setText("");
         ventana.tex_contraseña.setText("");
         suma.setResultado(0);
+ 
+    }
+    
+    private void verInformacion(){ //METODO PARA VER LA INFORMACION DE LOS PRODUCTOS
         
+        for (int i = 0;i < productos.size(); i ++) {
+            if(ventana2.jList1.getSelectedValue().equals(productos.get(i).getNombre())){
+                
+                informacion.infomacion_stock.setText(Integer.toString(productos.get(i).getCantidad()));
+                informacion.informacion_precio.setText(Float.toString(productos.get(i).getPrecio()));
+                informacion.informacion_producto.setText(productos.get(i).getNombre());
+                System.out.println(productos.get(i));
+                if(productos.get(i).getNombre().equals("Chetos")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(chetos.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Playera")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(playera.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Pantalon")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(pantalon.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Agua")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(agua.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Cerveza")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(cerveza.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Pan")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(pan.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }else if(productos.get(i).getNombre().equals("Refresco")){
+                    informacion.imagen_producto.setIcon(new ImageIcon(refresco.getImage().getScaledInstance(120,150,Image.SCALE_SMOOTH)));
+                }
+            }
+        }
         
-        
+        ventanaInformacion();
     }
      
+    private void eliminarProducto(){ //METODO PARA ELIMINAR ALGÚN PRODUCTO
+       
+       for (int i = 0;i < usuario.getCarroCliente().getProductos().size(); i ++) {
+           try{
+           if(ventanaC.Lista_Ventana_Carrito.getSelectedValue().toString().equals(usuario.getCarroCliente().getProductos().get(i).getNombre())){
+                    usuario.getCarroCliente().getProductos().remove(i);
+                    buscar(ventanaC.Lista_Ventana_Carrito.getSelectedValue().toString()).aumentar();
+                    actualizar();         
+                    break;
+           
+                   
+                }
+            }catch(Exception e){
+                  JOptionPane.showMessageDialog(null, "Seleccione algún producto");
+                  break;
+            }
+       }
+       
+   }
+    private Producto buscar(String comparar){ //METODO PARA BUSCAR ALGUN PRODUCTO
+        Producto producto = null;
+        for (Producto e: productos){
+            if (e.getNombre().equals(comparar)){
+                producto = e;
+                return producto;
+            }
+        }
+        
+       return null;
+    }
+    
+    private void ventanaInformacion(){ //METODO PARA VER LA VENTANA DE LA INFORMACION
+        informacion.setLocationRelativeTo(null);
+        informacion.setVisible(true);
+    }
+    
+    private void actualizar(){ //METODO PARA ACTUALIZAR EL CARRITO DESPUES DE BORRAR ALGUN PRODUCTO
+        ModeCarrito = limpiar;
+        verCarrito();
+    }
 }
