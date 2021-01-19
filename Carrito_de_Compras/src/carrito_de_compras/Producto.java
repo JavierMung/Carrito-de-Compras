@@ -1,6 +1,8 @@
 
 package carrito_de_compras;
 
+import javax.swing.JOptionPane;
+
 
 public class Producto {
     
@@ -47,8 +49,12 @@ public class Producto {
         cantidad++;
     }
     
-    public void disminuir(){
-        cantidad--;
+    public void disminuir(int dis){
+        if(cantidad-dis>=0){
+            cantidad-=dis;
+        }else{
+            JOptionPane.showMessageDialog(null, "No existen tantos productos en stock");
+        }
     }
     
 }

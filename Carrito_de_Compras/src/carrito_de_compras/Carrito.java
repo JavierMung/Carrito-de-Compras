@@ -11,6 +11,7 @@ public class Carrito {
     private static int numeroR = 1; 
     private int numero;
     private int NoProductos;
+    private ArrayList <Item> item = new ArrayList<Item>();
     private ArrayList <Producto> productos = new ArrayList<Producto>();
 
     public Carrito() {
@@ -19,6 +20,10 @@ public class Carrito {
 
     public ArrayList<Producto> getProductos() {
         return productos;
+    }
+    
+    public ArrayList<Item> getItems(){
+        return item;
     }
 
     public void setProductos(ArrayList<Producto> productos) {
@@ -35,7 +40,7 @@ public class Carrito {
     }
     
     private void asignarCarrito(){
-       numero = numeroR;
+        numero = numeroR;
         numeroR++;
     }
     
@@ -45,6 +50,18 @@ public class Carrito {
     
     public void AgrProd(Producto Pord){
         productos.add(Pord);
+    }
+    
+    public void AgregarProducto(Producto producto, int cantidad){
+        for(Item e: item){
+            if(e.getProductos().toString().equals(producto.toString())){
+                e.setCantidad(cantidad);
+                return;
+            }
+        }
+        Item i = new Item (this,producto,cantidad);
+        item.add(i);
+        
     }
     
 }

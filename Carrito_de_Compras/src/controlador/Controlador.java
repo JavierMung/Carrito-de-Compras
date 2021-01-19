@@ -7,6 +7,7 @@ import Ventanas.VentanaCarrito;
 import Ventanas.VentanaInformacion;
 import carrito_de_compras.Carrito;
 import carrito_de_compras.Cliente;
+import carrito_de_compras.Item;
 import carrito_de_compras.Producto;
 import carrito_de_compras.Sumar;
 import java.awt.Image;
@@ -95,7 +96,7 @@ public class Controlador implements ActionListener {
             ventanaC.Lista_Ventana_Carrito.setModel(limpiar);
             ventanaC.setVisible(false);     
         }else if(e.getSource() == ventana2.boton_agregar_carrito){
-            AgrCarrito();
+            agregarCarrito(); //AgrCarrito();
         }else if(e.getSource() == ventana2.boton_mas){
             aumentar();
         }else if(e.getSource() == ventana2.boton_menos){
@@ -119,7 +120,7 @@ public class Controlador implements ActionListener {
      
     private void asignarProductosCarr (){ //METODO PARA ASIGNAR LOS PRODUCTOS DEL CARRITO A LA LISTA
        
-        for(Producto e: usuario.getCarroCliente().getProductos()){
+        for(Item e: usuario.getCarroCliente().getItems()){
             ModeCarrito.addElement(e.toString());
         }
     }
@@ -175,7 +176,7 @@ public class Controlador implements ActionListener {
          ventanaC.setVisible(true);
      }
      
-     private void AgrCarrito(){     //FUNCION PARA AGREGAR LOS ITEMS AL CARRITO DEL USUARIO
+    /* private void AgrCarrito(){     //FUNCION PARA AGREGAR LOS ITEMS AL CARRITO DEL USUARIO
          int i =0;
          
          for (i = 0;i < productos.size(); i ++) {
@@ -206,10 +207,10 @@ public class Controlador implements ActionListener {
          ventana2.numero_producto.setText("1");
          contador=1;
      }
-     
+     */
      private void resultado(){ //FUNCION PARA REALIZAR LA SUMA DE LOS PRODUCTOS
-         suma.setResultado(0);
-         ventanaC.etiqueta_total.setText(Float.toString(suma.sumar()));
+         
+         ventanaC.etiqueta_total.setText(String.valueOf(suma.getResultado()));
      }
      
      private void aumentar(){ //FUNCION PARA AUMENTAR EL CONTADOR DE LOS PRODUCTOS
@@ -234,7 +235,7 @@ public class Controlador implements ActionListener {
          
      }
 
-    private void limpiar() {
+    private void limpiar() { 
         
         ModeCarrito.clear();
         ventana.text_Usuario.setText("");
@@ -312,5 +313,14 @@ public class Controlador implements ActionListener {
     private void actualizar(){ //METODO PARA ACTUALIZAR EL CARRITO DESPUES DE BORRAR ALGUN PRODUCTO
         ModeCarrito = limpiar;
         verCarrito();
+    }
+    
+    private void agregarCarrito(){ //METODO PARA AGREGAR ALGUN PRODUCTO AL CARRITO
+        int aux = Integer.parseInt(ventana2.numero_producto.getText());
+        Producto product = buscar(ventana2.jList1.getSelectedValue());
+        product.disminuir(aux);
+        usuario.getCarroCliente().AgregarProducto(product,aux);
+        suma.sumarVentana2(product,aux);
+        
     }
 }
