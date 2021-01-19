@@ -323,4 +323,10 @@ public class Controlador implements ActionListener {
         suma.sumarVentana2(product,aux);
         
     }
+    
+    private void eliminar(){
+        int aux = Integer.parseInt(ventanaC.text_cantidad.getText());
+        Producto product = buscar(ventana2.jList1.getSelectedValue());
+        usuario.getCarroCliente().Eliminar(product, contador);
+    }
 }

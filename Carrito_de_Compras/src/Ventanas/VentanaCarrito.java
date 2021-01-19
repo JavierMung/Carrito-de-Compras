@@ -37,6 +37,7 @@ public class VentanaCarrito extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         etiqueta_usuarioCarrito = new javax.swing.JLabel();
         boton_eliminar = new javax.swing.JButton();
+        text_cantidad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,7 +57,10 @@ public class VentanaCarrito extends javax.swing.JDialog {
         etiqueta_usuarioCarrito.setForeground(new java.awt.Color(153, 153, 153));
         etiqueta_usuarioCarrito.setText("Usuario");
 
-        boton_eliminar.setText("eliminar producto");
+        boton_eliminar.setText("eliminar productos");
+
+        text_cantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        text_cantidad.setText("1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,7 +77,11 @@ public class VentanaCarrito extends javax.swing.JDialog {
                                 .addComponent(boton_regresar)
                                 .addGap(46, 46, 46))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(text_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(etiqueta_total)
                                 .addGap(51, 51, 51))))
@@ -102,6 +110,8 @@ public class VentanaCarrito extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(boton_eliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(text_cantidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -177,5 +187,6 @@ public class VentanaCarrito extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel text_cantidad;
     // End of variables declaration//GEN-END:variables
 }

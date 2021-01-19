@@ -64,4 +64,13 @@ public class Carrito {
         
     }
     
+    public void Eliminar(Producto producto, int cantidad){
+        for(Item e: item){
+            if(e.getProductos().toString().equals(producto.toString())){
+                e.disminuirCantidad(cantidad);
+                return;
+            }
+        }
+    }
+    
 }
