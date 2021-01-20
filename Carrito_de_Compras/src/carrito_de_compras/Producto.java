@@ -45,8 +45,8 @@ public class Producto {
         this.cantidad = cantidad;
     }
     
-    public void aumentar(){
-        cantidad++;
+    public void aumentar(int aumentar){
+        cantidad+=aumentar;
     }
     
     public void disminuir(int dis){

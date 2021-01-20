@@ -92,6 +92,7 @@ public class Controlador implements ActionListener {
             verCarrito();
         }else if(e.getSource() == ventanaC.boton_regresar){
             ventana2.etiqueta_total_ventana2.setText("0");
+            suma.setAux(0);
             contador=1;
             ventanaC.Lista_Ventana_Carrito.setModel(limpiar);
             ventanaC.setVisible(false);     
@@ -169,6 +170,7 @@ public class Controlador implements ActionListener {
      private void verCarrito(){     //FUNCION PARA DESPLEGAR LA VENTANA DEL CARRITO
          ModeCarrito.clear();
          asignarProductosCarr();
+         suma.sumar();
          resultado();
          ventanaC.Lista_Ventana_Carrito.setModel(ModeCarrito); 
          ventanaC.setLocationRelativeTo(null);
@@ -176,38 +178,7 @@ public class Controlador implements ActionListener {
          ventanaC.setVisible(true);
      }
      
-    /* private void AgrCarrito(){     //FUNCION PARA AGREGAR LOS ITEMS AL CARRITO DEL USUARIO
-         int i =0;
-         
-         for (i = 0;i < productos.size(); i ++) {
-            if(ventana2.jList1.getSelectedValue().equals(productos.get(i).getNombre())){
-                if(productos.get(i).getCantidad() <= 0){ //CONDICIONAL PARA SABER SI HAY PRODUCTOS EN EXISTENCIA
-                    JOptionPane.showMessageDialog(null, "NO HAY EN EXISTENCIAS EN ESTE MOEMNTO");
-                }else{
-                    
-                    System.out.println(productos.get(i).getNombre());
-                    if(Integer.parseInt(ventana2.numero_producto.getText()) <= 0 ){
-                        JOptionPane.showMessageDialog(ventana, "Seleccione más de un producto");
-                    }else{
-                        if(productos.get(i).getCantidad()-Integer.parseInt(ventana2.numero_producto.getText()) >= 0){
-                            for(int j=0;j< Integer.parseInt(ventana2.numero_producto.getText()) ;j++){
-                            usuario.getCarroCliente().AgrProd(productos.get(i));
-                            productos.get(i).disminuir();
-                            }
-                            ventana2.etiqueta_total_ventana2.setText(Float.toString(suma.sumarVentana2(productos.get(i), Integer.parseInt(ventana2.numero_producto.getText()))));
-                        }else {
-                            JOptionPane.showMessageDialog(null, "No contamos con tantos productos en Stock :( \n Favor de ver informacion del producto");
-                        }
-                    }
-                }
-            }
-         
-        }
-         System.out.println("numero"+ventana2.numero_producto.getText());
-         ventana2.numero_producto.setText("1");
-         contador=1;
-     }
-     */
+   
      private void resultado(){ //FUNCION PARA REALIZAR LA SUMA DE LOS PRODUCTOS
          
          ventanaC.etiqueta_total.setText(String.valueOf(suma.getResultado()));
@@ -275,30 +246,6 @@ public class Controlador implements ActionListener {
         ventanaInformacion();
     }
      
-    /*private void eliminarProducto(){ //METODO PARA ELIMINAR ALGÚN PRODUCTO
-       System.out.println(ventanaC.Lista_Ventana_Carrito.getSelectedValue());
-      
-        System.out.println(usuario.getCarroCliente().getProductos().size());
-        
-       for (int i = 0;i < usuario.getCarroCliente().getProductos().s; i ++) {
-           System.out.println(usuario.getCarroCliente().getProductos().get(i).getNombre());
-           try{
-           if(ventanaC.Lista_Ventana_Carrito.getSelectedValue().toString().equals(usuario.getCarroCliente().getProductos().get(i).getNombre())){
-               
-               usuario.getCarroCliente().getProductos().remove(i);
-                    buscar(ventanaC.Lista_Ventana_Carrito.getSelectedValue().toString()).aumentar();
-                    actualizar();
-                    break;
-           
-                   
-                }
-            }catch(Exception e){
-                  JOptionPane.showMessageDialog(null, "Seleccione algún producto");
-                  break;
-            }
-       }
-       
-   }*/
     private Producto buscar(String comparar){ //METODO PARA BUSCAR ALGUN PRODUCTO
         Producto producto = null;
         for (Producto e: productos){
@@ -327,15 +274,22 @@ public class Controlador implements ActionListener {
         product.disminuir(aux);
         usuario.getCarroCliente().AgregarProducto(product,aux);
         suma.sumarVentana2(product,aux);
+        ventana2.etiqueta_total_ventana2.setText(String.valueOf(suma.getAux()));
+        ventana2.numero_producto.setText("1");
         
     }
     
     private void eliminar(){
-        int aux = Integer.parseInt(ventanaC.CanProd.getText());
-       
-        Producto product = buscar(ventana2.jList1.getSelectedValue());
-        usuario.getCarroCliente().Eliminar(product, aux);
         
+        int aux = Integer.parseInt(ventanaC.CanProd.getText());
+        Producto product = buscar(ventanaC.Lista_Ventana_Carrito.getSelectedValue());
+        usuario.getCarroCliente().Eliminar(product, aux);
+        actualizar();
+        suma.setResultado(0);
+        suma.sumar();
+        System.out.println(suma.getResultado());
         resultado();
+        
+        
     }
 }
