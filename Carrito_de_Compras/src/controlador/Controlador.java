@@ -109,6 +109,8 @@ public class Controlador implements ActionListener {
         }else if(e.getSource() == ventanaC.boton_eliminar){
             eliminar();
            //eliminarProducto();
+        }else if(e.getSource() == ventanaC.BtnVaciarCarro){
+            //VaciarCarro();
         }
     }
     
@@ -290,6 +292,15 @@ public class Controlador implements ActionListener {
         System.out.println(suma.getResultado());
         resultado();
         
-        
     }
+    
+    /*private void VaciarCarro(){
+        //Producto producto = null;
+        usuario.getCarroCliente().getItems();
+            
+        for (Item e: usuario.getCarroCliente().getItems()){
+            System.out.println(e.getNombre());
+            usuario.getCarroCliente().Eliminar(e, e.getCantidad());
+        }
+    }*/
 }
